@@ -24,7 +24,7 @@ Bienvenue sur mon portfolio en ligne ! Ce site web présente mon parcours profes
 
 ## 🌐 Site en ligne
 
-Le portfolio est accessible à l'adresse : https://JLeb0nX.github.io
+Le portfolio est accessible à l'adresse : https://johan-lebon.re
 
 ## ✨ Fonctionnalités
 
