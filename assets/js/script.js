@@ -157,3 +157,47 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// Fonction pour ouvrir le modal
+function openModal(title, image, description) {
+  const modal = document.getElementById('projectModal');
+  
+  // Remplir le modal
+  modal.querySelector('.modal-title').textContent = title;
+  modal.querySelector('.modal-img').src = image;
+  modal.querySelector('.modal-description').textContent = description;
+  
+  // Afficher le modal
+  modal.style.display = 'block';
+}
+
+// Ajouter les event listeners pour tous les projets
+document.querySelectorAll('.project-item > a').forEach(link => {
+  link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Récupérer les informations du projet
+      const title = link.querySelector('.project-title').textContent;
+      const image = link.querySelector('.project-img img').src;
+      const category = link.querySelector('.project-category').textContent;
+      
+      // Description à personnaliser pour chaque projet
+      const description = `Projet réalisé en ${category}. 
+          Cliquez sur les liens ci-dessous pour plus de détails.`;
+      
+      openModal(title, image, description);
+  });
+});
+
+// Fermer le modal avec le bouton close
+document.querySelector('.modal-close').addEventListener('click', () => {
+  document.getElementById('projectModal').style.display = 'none';
+});
+
+// Fermer le modal en cliquant en dehors
+window.addEventListener('click', (e) => {
+  const modal = document.getElementById('projectModal');
+  if (e.target === modal) {
+      modal.style.display = 'none';
+  }
+});
