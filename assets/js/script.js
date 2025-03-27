@@ -210,13 +210,16 @@ document.querySelectorAll('.project-item > a').forEach(link => {
                        '<h3>Compétences Techniques</h3>\n' +
                        '<h4>Administration Système</h4>\n' +
                        '- Installation et configuration d\'un système d\'exploitation Linux\n' +
-                       '- Gestion des utilisateurs et sécurisation du système\n' +
                        '- Configuration des services réseau\n\n' +
                        '<h4>Réseaux</h4>\n' +
                        '- Compréhension du protocole DHCP\n' +
                        '- Configuration et utilisation de SSH\n' +
-                       '- Utilisation d\'outils de diagnostic réseau (nmap)';
-          buttons = '<a href="#" class="btn">Voir le PDF</a><a href="#" class="btn">Voir la vidéo</a>';
+                       '- Utilisation d\'outils de diagnostic réseau (nmap)\n\n' + 
+                       '<h3>Compétences Méthodologiques</h3>\n' + 
+                       '- Gestion de projet technique\n' +
+                       '- Résolution de problèmes\n' +
+                       '- Capacité à suivre un cahier des charges\n';
+          buttons = '<a href="./assets/pdf/Compte_rendu_initiation_aux_réseaux_informatiques.pdf" class="btn">Voir le PDF</a><a href="#" class="btn">Voir la vidéo</a>';
           break;
       
           // Ajoutez d'autres cas pour chaque projet
