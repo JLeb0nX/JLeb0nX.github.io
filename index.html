@@ -872,33 +872,35 @@
       -->
 
       <article class="contact" data-page="contact">
-
         <header>
-          <h2 class="h2 article-title">Contact</h2>
+            <h2 class="h2 article-title">Contact</h2>
         </header>
-
         <section class="contact-form">
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Prénom et Nom" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Adresse Mail" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Votre message..." required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
+            <form action="mailto:johan.lebon@rt-iut.re" method="POST" enctype="text/plain" class="form" data-form>
+                <div class="input-wrapper">
+                    <input type="text" name="fullname" class="form-input" placeholder="Prénom et Nom" required data-form-input>
+                    <input type="email" name="email" class="form-input" placeholder="Adresse Mail" required data-form-input>
+                </div>
+                <textarea name="message" class="form-input" placeholder="Votre message..." required data-form-input></textarea>
+                <button class="form-btn" type="submit" data-form-btn>
+                    <ion-icon name="paper-plane"></ion-icon>
+                    <span>Envoyer</span>
+                </button>
+            </form>
         </section>
-
+        <section class="rating-section">
+            <h3>Votre Avis</h3>
+            <div class="rating">
+                <span class="star" data-rating="1">★</span>
+                <span class="star" data-rating="2">★</span>
+                <span class="star" data-rating="3">★</span>
+                <span class="star" data-rating="4">★</span>
+                <span class="star" data-rating="5">★</span>
+            </div>
+            <p id="ratingText">Notez mon portfolio !</p>
+        </section>
       </article>
+    
 
     </div>
 

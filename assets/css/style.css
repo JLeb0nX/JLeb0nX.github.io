@@ -1746,6 +1746,86 @@ textarea.form-input::-webkit-resizer { display: none; }
     width: max-content;
     margin-left: auto;
   }
+
+  /* Styles pour la section rating */
+.rating-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.rating {
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.star {
+  cursor: pointer;
+  color: var(--jet);
+  transition: color 0.2s;
+}
+
+.star:hover,
+.star.active {
+  color: var(--orange-yellow-crayola);
+}
+
+/* Style du formulaire */
+.contact-form {
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .input-wrapper {
+      flex-direction: column;
+  }
+}
+
+.form-input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--jet);
+  background: var(--eerie-black-2);
+  color: var(--light-gray);
+  width: 100%;
+}
+
+textarea.form-input {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  background: var(--jet);
+  color: var(--orange-yellow-crayola);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-btn:hover {
+  background: var(--orange-yellow-crayola);
+  color: var(--jet);
+}
   
 }
 

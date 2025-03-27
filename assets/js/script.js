@@ -276,6 +276,56 @@ function showPDF(event, pdfName) {
   button.textContent = 'Fermer le PDF';
 }
 
+// Système de notation
+document.querySelectorAll('.star').forEach(star => {
+  star.addEventListener('click', (e) => {
+      const rating = e.target.dataset.rating;
+      document.querySelectorAll('.star').forEach(s => {
+          s.classList.remove('active');
+          if (s.dataset.rating <= rating) {
+              s.classList.add('active');
+          }
+      });
+      document.getElementById('ratingText').textContent = 'Merci pour votre note de ' + rating + '/5 !';
+  });
 
+  // Effet de survol pour montrer les étoiles potentielles
+  star.addEventListener('mouseover', (e) => {
+      const rating = e.target.dataset.rating;
+      document.querySelectorAll('.star').forEach(s => {
+          if (s.dataset.rating <= rating) {
+              s.style.color = 'var(--orange-yellow-crayola)';
+          }
+      });
+  });
+
+  // Réinitialiser les étoiles non sélectionnées au survol
+  star.addEventListener('mouseout', (e) => {
+      document.querySelectorAll('.star').forEach(s => {
+          if (!s.classList.contains('active')) {
+              s.style.color = 'var(--jet)';
+          }
+      });
+  });
+});
+
+// Validation du formulaire
+const formElement = document.querySelector('.form');
+const inputs = document.querySelectorAll('.form-input');
+const submitBtn = document.querySelector('.form-btn');
+
+inputs.forEach(input => {
+  input.addEventListener('input', validateForm);
+});
+
+function validateForm() {
+  let isValid = true;
+  inputs.forEach(input => {
+      if (!input.value.trim()) {
+          isValid = false;
+      }
+  });
+  submitBtn.disabled = !isValid;
+}
 
 
