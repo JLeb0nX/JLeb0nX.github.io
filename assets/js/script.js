@@ -219,7 +219,7 @@ document.querySelectorAll('.project-item > a').forEach(link => {
                        '- Gestion de projet technique\n' +
                        '- Résolution de problèmes\n' +
                        '- Capacité à suivre un cahier des charges\n';
-          buttons = '<a href="./assets/pdf/Compte_rendu_initiation_aux_réseaux_informatiques.pdf" class="btn">Voir le PDF</a><a href="#" class="btn">Voir la vidéo</a>';
+          buttons = '<a href="#" class="btn" onclick="showPDF(event, \'Compte_rendu_initiation_aux_réseaux_informatiques.pdf\')">Voir le PDF</a>';
           break;
       
           // Ajoutez d'autres cas pour chaque projet
@@ -250,3 +250,16 @@ window.addEventListener('click', (e) => {
       modal.style.display = 'none';
   }
 });
+
+function showPDF(event, pdfName) {
+  event.preventDefault();
+  const modal = document.getElementById('projectModal');
+  const pdfContainer = document.createElement('div');
+  pdfContainer.style.width = '100%';
+  pdfContainer.style.height = '500px';
+  pdfContainer.innerHTML = `<iframe src="./assets/pdf/${pdfName}#toolbar=0" width="100%" height="100%" style="border: none;"></iframe>`;
+  
+  modal.querySelector('.modal-description').appendChild(pdfContainer);
+}
+
+
