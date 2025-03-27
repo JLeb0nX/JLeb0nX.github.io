@@ -181,11 +181,57 @@ document.querySelectorAll('.project-item > a').forEach(link => {
       const image = link.querySelector('.project-img img').src;
       const category = link.querySelector('.project-category').textContent;
       
-      // Description à personnaliser pour chaque projet
-      const description = `Projet réalisé en ${category}. 
-          Cliquez sur les liens ci-dessous pour plus de détails.`;
+      // Description et boutons selon le projet
+      let description = '';
+      let buttons = '';
       
-      openModal(title, image, description);
+      switch(title) {
+        case 'S\'initier aux réseaux informatiques':
+          description = '<h2>Projet : Initiation aux Réseaux Informatiques avec Raspberry Pi</h2>\n' +
+                       'Ce projet combine hardware et software pour créer un système de monitoring environnemental connecté.\n\n' +
+                       'Voici les principales sections :\n\n' +
+                       '<h3>Configuration et Installation</h3>\n' +
+                       '- Installation et configuration d\'un Raspberry Pi OS\n' +
+                       '- Mise en place sécurisée avec modification des identifiants par défaut\n' +
+                       '- Configuration réseau et obtention d\'adresse IP via DHCP\n\n' +
+                       '<h3>Connectivité et Réseau</h3>\n' +
+                       '- Implémentation de connexion SSH pour contrôle à distance\n' +
+                       '- Utilisation d\'outils réseau comme nmap pour la découverte d\'appareils\n' +
+                       '- Compréhension et utilisation du protocole DHCP\n\n' +
+                       '<h3>Hardware et Électronique</h3>\n' +
+                       '- Conception et réalisation de circuits LED\n' +
+                       '- Installation et configuration du capteur DHT22 (température et humidité)\n' +
+                       '- Création de schémas de câblage détaillés avec Fritzing\n\n' +
+                       '<h3>Programmation et Data</h3>\n' +
+                       '- Développement de scripts Python pour contrôler les LED\n' +
+                       '- Acquisition de données environnementales via le capteur DHT22\n' +
+                       '- Implémentation du protocole MQTT pour la transmission de données\n\n' +
+                       '<h2>Compétences Acquises</h2>\n' +
+                       '<h3>Compétences Techniques</h3>\n' +
+                       '<h4>Administration Système</h4>\n' +
+                       '- Installation et configuration d\'un système d\'exploitation Linux\n' +
+                       '- Gestion des utilisateurs et sécurisation du système\n' +
+                       '- Configuration des services réseau\n\n' +
+                       '<h4>Réseaux</h4>\n' +
+                       '- Compréhension du protocole DHCP\n' +
+                       '- Configuration et utilisation de SSH\n' +
+                       '- Utilisation d\'outils de diagnostic réseau (nmap)';
+          buttons = '<a href="#" class="btn">Voir le PDF</a><a href="#" class="btn">Voir la vidéo</a>';
+          break;
+      
+          // Ajoutez d'autres cas pour chaque projet
+          default:
+              description = `Projet réalisé en ${category}.\nCliquez sur les liens ci-dessous pour plus de détails.`;
+              buttons = '<a href="#" class="btn">Voir le projet</a>';
+      }
+      
+      // Remplir et afficher le modal
+      const modal = document.getElementById('projectModal');
+      modal.querySelector('.modal-title').textContent = title;
+      modal.querySelector('.modal-img').src = image;
+      modal.querySelector('.modal-description').innerHTML = description.replace(/\n/g, '<br>');
+      modal.querySelector('.modal-links').innerHTML = buttons;
+      modal.style.display = 'block';
   });
 });
 
