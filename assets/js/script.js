@@ -254,12 +254,28 @@ window.addEventListener('click', (e) => {
 function showPDF(event, pdfName) {
   event.preventDefault();
   const modal = document.getElementById('projectModal');
+  const button = event.target;
+  const description = modal.querySelector('.modal-description');
+  
+  // Si le PDF est déjà affiché
+  const existingPDF = description.querySelector('.pdf-container');
+  if (existingPDF) {
+      existingPDF.remove();
+      button.textContent = 'Voir le PDF';
+      return;
+  }
+  
+  // Afficher le PDF
   const pdfContainer = document.createElement('div');
+  pdfContainer.className = 'pdf-container';
   pdfContainer.style.width = '100%';
   pdfContainer.style.height = '500px';
   pdfContainer.innerHTML = `<iframe src="./assets/pdf/${pdfName}#toolbar=0" width="100%" height="100%" style="border: none;"></iframe>`;
   
-  modal.querySelector('.modal-description').appendChild(pdfContainer);
+  description.appendChild(pdfContainer);
+  button.textContent = 'Fermer le PDF';
 }
+
+
 
 
